@@ -1,4 +1,4 @@
-# Remote Sensing Course · Serie Técnica de Teledetección
+# Curso de Teledetección · Serie Técnica de Teledetección
 
 Repositorio académico del curso de **Teledetección** del Programa de Ingeniería Topográfica y Geomática de la Universidad del Quindío.
 
@@ -64,7 +64,7 @@ El caso evalúa la pertinencia de diferentes sistemas de teledetección pasiva m
 ## Organización del repositorio
 
 ```text
-remote-sensing-course/
+curso-teledeteccion/
 ├── docs/
 │   ├── guia_general/
 │   ├── normas_editoriales/
