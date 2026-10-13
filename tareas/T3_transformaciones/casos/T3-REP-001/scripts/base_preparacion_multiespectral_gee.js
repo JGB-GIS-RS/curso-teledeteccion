@@ -3,7 +3,7 @@
 // Sector Cali-Candelaria, valle del rio Cauca
 //
 // SCRIPT BASE · PREPARACION MULTIESPECTRAL
-// Version 1.0
+// Version 1.1
 //
 // Este script fija la observacion comun de la TAREA.
 // NO resuelve firmas, indices ni PCA.
@@ -50,6 +50,10 @@ var QA_BAND = 'cs_cdf';
 var CLEAR_THRESHOLD = 0.60;
 
 var ANALYSIS_SCALE = 20;
+
+// CRS proyectado comun del caso.
+// Cali-Candelaria se encuentra en UTM zona 18N.
+var TARGET_CRS = 'EPSG:32618';
 
 // Bandas disponibles para el trabajo espectral.
 // B8 se conserva porque se utiliza en falso color, NDVI y NDBI.
@@ -165,20 +169,22 @@ print('Observacion diaria preparada:', daily);
 // ============================================================================
 // 5. MALLA COMUN DE 20 m
 //
-// B5 es una banda nativa de 20 m y se utiliza como referencia geometrica.
-// Las bandas continuas se remuestrean bilinealmente.
+// Se fija explicitamente EPSG:32618 (UTM zona 18N) a 20 m.
 //
-// No se cambia la resolucion fisica del sensor: se fija una malla comun para
+// Las bandas continuas se remuestrean bilinealmente. Esta decision evita
+// depender de la transformacion interna de un mosaico construido a partir de
+// varios granulos, cuya transform() no debe pasarse directamente a reproject.
+//
+// No se cambia la resolucion fisica del sensor: se define una malla comun para
 // que comparaciones multibanda y PCA utilicen el mismo soporte espacial.
 // ============================================================================
 
-var referenceProjection = daily
-  .select('B5')
-  .projection();
+var targetProjection = ee.Projection(TARGET_CRS)
+  .atScale(ANALYSIS_SCALE);
 
 print(
-  'Proyeccion de referencia 20 m:',
-  referenceProjection
+  'Proyeccion comun de analisis:',
+  targetProjection
 );
 
 function toCommon20m(bandName) {
@@ -187,8 +193,8 @@ function toCommon20m(bandName) {
     .select(bandName)
     .resample('bilinear')
     .reproject({
-      crs: referenceProjection.crs(),
-      crsTransform: referenceProjection.transform()
+      crs: TARGET_CRS,
+      scale: ANALYSIS_SCALE
     })
     .rename(bandName);
 }
@@ -227,7 +233,7 @@ var validPct = ee.Number(
       reducer: ee.Reducer.mean(),
       geometry: aoi,
       scale: ANALYSIS_SCALE,
-      crs: referenceProjection.crs(),
+      crs: TARGET_CRS,
       maxPixels: 1e8,
       tileScale: 4
     })
@@ -351,6 +357,7 @@ print('T3-REP-001 · SCRIPT BASE');
 print('Producto:', 'COPERNICUS/S2_SR_HARMONIZED');
 print('Fecha:', DATE);
 print('Cloud Score+: cs_cdf >=', CLEAR_THRESHOLD);
+print('CRS comun:', TARGET_CRS);
 print('Escala comun [m]:', ANALYSIS_SCALE);
 print('Este script NO calcula firmas, indices ni PCA.');
 print('============================================================');
