@@ -2,7 +2,7 @@
 
 ## Transformaciones y estructura espectral
 
-**Serie Técnica de Teledetección · Versión 1.0**
+**Serie Técnica de Teledetección · Versión 1.1**
 
 Esta rúbrica evalúa la calidad de las decisiones técnicas, la comprensión de la respuesta espectral, la interpretación de transformaciones dirigidas y no dirigidas y la capacidad para comparar representaciones sin confundir procesamiento con significado físico.
 
@@ -72,15 +72,15 @@ Cada criterio se califica en escala de 0 a 5.
 
 ## 3. Firmas espectrales y respuesta de superficies · 12 %
 
-**Sobresaliente.** Selecciona superficies de referencia homogéneas y reproducibles, analiza correctamente sus firmas y explica contrastes y similitudes en VIS, NIR, red-edge y SWIR. Identifica regiones útiles y ambigüedades sin convertir las muestras en clases de entrenamiento.
+**Sobresaliente.** Documenta cuatro polígonos homogéneos y reproducibles para cada uno de los cuatro tipos de superficie, seleccionados antes de NDVI/NDBI/PCA y sin circularidad. Controla su soporte espacial, utiliza la misma malla de 20 m del análisis y caracteriza las firmas mediante mediana y P25–P75. Explica contrastes, dispersiones y solapamientos en VIS, red-edge, NIR y SWIR y conecta esas respuestas con las transformaciones posteriores sin convertir las superficies en clases de entrenamiento.
 
-**Sólido.** Las firmas son técnicamente correctas y están bien interpretadas; reconoce los principales contrastes y confusiones con limitaciones menores.
+**Sólido.** Las 16 superficies están adecuadamente documentadas, las firmas y su dispersión son técnicamente correctas y se reconocen los principales contrastes y confusiones, con limitaciones menores de distribución espacial o profundidad interpretativa.
 
-**Aceptable.** Presenta firmas funcionales y una interpretación general correcta, pero el análisis entre regiones espectrales es superficial o las superficies de referencia están débilmente documentadas.
+**Aceptable.** Presenta superficies y firmas funcionales, pero existe documentación parcial de los polígonos, poca atención a la dispersión P25–P75 o un análisis superficial de las regiones espectrales.
 
-**Insuficiente.** Selecciona muestras heterogéneas, interpreta incorrectamente la respuesta espectral, trata las firmas como entrenamiento de clasificación o describe curvas sin relacionarlas con propiedades espectrales.
+**Insuficiente.** Selecciona superficies heterogéneas o a partir de índices/componentes ya calculados, utiliza puntos aislados o soporte espacial inadecuado sin justificación, omite la variabilidad interna, interpreta incorrectamente la respuesta espectral o trata las superficies como entrenamiento de clasificación.
 
-**Sin evidencia.** No existe análisis verificable de firmas espectrales.
+**Sin evidencia.** No existe análisis verificable de superficies de referencia y firmas espectrales.
 
 ---
 
@@ -190,6 +190,8 @@ Cada criterio se califica en escala de 0 a 5.
 - No se premia la inclusión de índices adicionales por sí misma.
 - NDVI y NDBI deben mantenerse como variables continuas salvo que exista una justificación externa independiente para otra representación.
 - Las superficies de referencia sirven para análisis espectral y no deben convertirse en un ejercicio encubierto de clasificación.
+- La selección de superficies de referencia debe preceder al cálculo de NDVI, NDBI y PCA; no es válido seleccionar polígonos a partir de esos productos derivados.
+- El protocolo de referencia utiliza cuatro polígonos por tipo de superficie y mediana con P25–P75 para caracterizar la respuesta espectral.
 - PCA no debe interpretarse únicamente por apariencia visual.
 - Una mayor varianza explicada no implica automáticamente mayor valor biofísico o interpretativo.
 - El signo de un componente principal no constituye evidencia física.
