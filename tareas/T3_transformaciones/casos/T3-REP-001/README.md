@@ -63,7 +63,8 @@ El estudiante deberá utilizar conjuntamente:
 - [Área de estudio · AOI_ANALYSIS](datos/aoi_analysis.geojson)
 - [Documentación de datos y observación](datos/README.md)
 - [Script base de preparación multiespectral](scripts/base_preparacion_multiespectral_gee.js)
-- [Documentación del script base](scripts/README.md)
+- [Bloque E2 · superficies de referencia y firmas espectrales](scripts/firmas_espectrales_gee.js)
+- [Documentación de scripts](scripts/README.md)
 - [Rúbrica de TAREA 3](../../../../docs/rubricas/T3_rubrica.md)
 - [Guía para autores](../../../../docs/guia_general/guia_para_autores.md)
 - [Informe técnico de referencia y base editable](../../../../examples/informe_tecnico_02/)
@@ -107,27 +108,34 @@ Deberá quedar clara la diferencia entre una adquisición disponible y una obser
 
 ### 2. ¿Qué diferencias existen en la respuesta espectral original de las superficies?
 
-Antes de transformar los datos deberán analizarse las bandas originales mediante superficies de referencia.
+Antes de calcular NDVI, NDBI o PCA deberán definirse las superficies de referencia utilizando únicamente las bandas originales y las composiciones suministradas.
 
-Como mínimo deberán considerarse cuatro tipos de superficie representativos del dominio:
+Se trabajará con cuatro tipos de superficie:
 
 - vegetación agrícola vigorosa;
-- vegetación agrícola con menor cobertura, parcelas cosechadas o respuesta vegetal reducida;
-- superficies construidas;
+- vegetación agrícola con menor respuesta, parcela cosechada o cobertura vegetal reducida;
+- superficie construida;
 - suelo expuesto.
 
-Podrá incorporarse agua como referencia adicional cuando exista soporte espacial suficiente y se controle la mezcla de píxeles.
+Para cada tipo se seleccionarán **cuatro polígonos independientes**, para un total de **16 polígonos**. Cada polígono deberá ubicarse sobre un sector visualmente homogéneo, evitar bordes y píxeles mixtos y contener preferiblemente entre **9 y 25 píxeles válidos de 20 m**. Una desviación de este intervalo deberá justificarse.
 
-Las superficies deberán seleccionarse sobre sectores visualmente homogéneos y documentarse espacialmente.
+Los polígonos deberán distribuirse espacialmente dentro del AOI y conservar identificadores reproducibles. No podrán seleccionarse a partir de valores de NDVI, NDBI, componentes principales u otros productos derivados, con el fin de evitar circularidad interpretativa.
 
-Su función es caracterizar firmas espectrales, no construir muestras de entrenamiento.
+Para las firmas se utilizarán:
+
+`B2, B3, B4, B5, B6, B7, B8, B8A, B11, B12`
+
+La respuesta de cada tipo de superficie se resumirá mediante **mediana**, acompañada de **P25 y P75** como medida de dispersión interna.
 
 El informe deberá establecer:
 
 - en qué regiones espectrales aparecen los principales contrastes;
-- qué superficies presentan respuestas similares;
+- qué superficies presentan respuestas similares o solapamientos;
 - qué bandas aportan mayor diferenciación;
-- dónde aparecen ambigüedades.
+- cómo cambia la dispersión dentro de cada tipo de superficie;
+- qué ambigüedades deberán considerarse al interpretar posteriormente NDVI, NDBI y PCA.
+
+Estas geometrías son **superficies de referencia para comprensión espectral**. No son clases ni muestras de entrenamiento.
 
 ### 3. ¿Qué información revela cada composición de bandas?
 
@@ -229,18 +237,22 @@ Una representación puede ser adecuada para un contraste y poco informativa para
 
 Mapa del AOI y documentación de la observación utilizada, incluyendo fecha, producto, resolución, bandas, máscara de calidad y porcentaje de superficie válida.
 
-### E2. Firmas espectrales
+### E2. Superficies de referencia y firmas espectrales
 
-Gráfico comparativo de las firmas espectrales de las superficies de referencia.
+La evidencia constará de dos partes inseparables.
 
-La evidencia deberá identificar:
+**E2a · Localización y soporte.** Mapa del AOI con los **16 polígonos de referencia**, identificados individualmente y acompañados por el número de píxeles válidos de cada polígono. Se utilizarán cuatro polígonos por cada uno de los cuatro tipos de superficie.
+
+**E2b · Firmas espectrales.** Gráfico comparativo de reflectancia superficial para `B2, B3, B4, B5, B6, B7, B8, B8A, B11, B12`. La línea central representará la **mediana** de cada tipo de superficie y la dispersión se documentará mediante **P25–P75**.
+
+La interpretación deberá identificar:
 
 - regiones de mayor contraste;
 - superficies espectralmente próximas;
-- relaciones VIS–NIR–SWIR relevantes;
-- posibles fuentes de confusión.
+- relaciones VIS–red-edge–NIR–SWIR relevantes;
+- solapamientos y posibles fuentes de confusión.
 
-Las geometrías o puntos de referencia deberán quedar documentados para permitir reproducibilidad.
+La selección de estas superficies deberá realizarse **antes de calcular NDVI, NDBI o PCA**. Las geometrías deberán quedar documentadas para permitir reproducibilidad y no podrán utilizarse como muestras de entrenamiento.
 
 ### E3. Composiciones de bandas
 
@@ -391,7 +403,8 @@ Estos procedimientos podrán mencionarse como extensiones o trabajos posteriores
 
 - Máximo dos autores por informe.
 - El análisis deberá ser reproducible y las fuentes deberán quedar documentadas.
-- Las superficies de referencia deberán estar espacialmente documentadas.
+- Las superficies de referencia deberán estar espacialmente documentadas: cuatro polígonos por tipo, 16 en total, con identificador y número de píxeles válidos.
+- Las superficies de referencia deberán seleccionarse antes de calcular NDVI, NDBI o PCA y sin utilizar esos productos como criterio de selección.
 - Las composiciones comparadas deberán utilizar criterios visuales coherentes.
 - NDVI y NDBI deberán presentarse como variables continuas.
 - Las bandas del PCA deberán compartir malla, máscara y unidades.
@@ -416,4 +429,4 @@ La calidad del trabajo dependerá de la capacidad del estudiante para explicar n
 
 ---
 
-**Versión del caso:** 1.4 · **Estado:** diseño técnico cerrado; AOI y script base v1.2 validados con producto Sentinel-2 fijo · semestre 2026-2.
+**Versión del caso:** 1.5 · **Estado:** diseño técnico cerrado; preparación común validada y protocolo E2 de firmas espectrales incorporado · semestre 2026-2.
