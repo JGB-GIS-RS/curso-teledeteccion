@@ -43,15 +43,17 @@ El análisis utilizará una sola observación:
 |---|---|
 | **Fecha** | 10-ago-2026 |
 | **Misión** | Sentinel-2 |
-| **Producto** | `COPERNICUS/S2_SR_HARMONIZED` |
+| **Colección** | `COPERNICUS/S2_SR_HARMONIZED` |
+| **Producto fijo** | `S2A_MSIL2A_20260810T153641_N0512_R068_T18NUJ_20260811T003714` |
+| **Satélite / MGRS** | Sentinel-2A / `18NUJ` |
 | **Nivel** | Level-2A / Surface Reflectance |
 | **Control complementario** | Cloud Score+ `cs_cdf` |
 | **Umbral inicial de claridad** | `cs_cdf ≥ 0.60` |
-| **Cobertura válida en auditoría de selección** | 100 % del AOI a 120 m |
+| **Cobertura válida del gránulo seleccionado** | 100 % del AOI a 20 m |
 | **Resolución común de análisis** | 20 m |
 | **CRS común de análisis** | `EPSG:32618` (UTM zona 18N) |
 
-La fecha fue seleccionada después de una auditoría por fecha única de las observaciones disponibles. En esta TAREA no se realizará análisis temporal.
+La fecha fue seleccionada después de una auditoría por fecha única. Posteriormente se auditaron individualmente los tres gránulos del 10-ago-2026 y se fijó el producto `18NUJ`, que cubre el 100 % del AOI bajo la máscara del caso a 20 m. En esta TAREA no se realizará análisis temporal ni mosaico diario.
 
 ## Materiales del caso
 
@@ -413,4 +415,4 @@ La calidad del trabajo dependerá de la capacidad del estudiante para explicar n
 
 ---
 
-**Versión del caso:** 1.2 · **Estado:** diseño técnico cerrado; AOI y script base v1.1 disponibles · semestre 2026-2.
+**Versión del caso:** 1.3 · **Estado:** diseño técnico cerrado; AOI y script base v1.2 con producto Sentinel-2 fijo · semestre 2026-2.
