@@ -49,6 +49,7 @@ El análisis utilizará una sola observación:
 | **Umbral inicial de claridad** | `cs_cdf ≥ 0.60` |
 | **Cobertura válida en auditoría de selección** | 100 % del AOI a 120 m |
 | **Resolución común de análisis** | 20 m |
+| **CRS común de análisis** | `EPSG:32618` (UTM zona 18N) |
 
 La fecha fue seleccionada después de una auditoría por fecha única de las observaciones disponibles. En esta TAREA no se realizará análisis temporal.
 
@@ -412,4 +413,4 @@ La calidad del trabajo dependerá de la capacidad del estudiante para explicar n
 
 ---
 
-**Versión del caso:** 1.1 · **Estado:** diseño técnico cerrado; AOI y script base disponibles · semestre 2026-2.
+**Versión del caso:** 1.2 · **Estado:** diseño técnico cerrado; AOI y script base v1.1 disponibles · semestre 2026-2.
