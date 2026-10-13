@@ -4,7 +4,7 @@ Esta carpeta contiene el punto de partida reproducible del caso T3-REP-001.
 
 ## Script base
 
-[`base_preparacion_multiespectral_gee.js`](base_preparacion_multiespectral_gee.js) · **versión 1.0**
+[`base_preparacion_multiespectral_gee.js`](base_preparacion_multiespectral_gee.js) · **versión 1.1**
 
 El script prepara la observación común sobre la cual se desarrollará toda la TAREA:
 
@@ -14,7 +14,7 @@ El script prepara la observación común sobre la cual se desarrollará toda la 
 - aplica la máscara de calidad;
 - convierte las bandas a reflectancia superficial;
 - construye una observación diaria única;
-- organiza las bandas sobre una malla común de 20 m;
+- organiza las bandas sobre una malla común de 20 m en `EPSG:32618` (UTM 18N);
 - calcula la cobertura válida de la observación preparada;
 - muestra las tres composiciones de referencia.
 
@@ -49,4 +49,4 @@ La preparación radiométrica y geométrica se fija para que todos los grupos co
 
 ---
 
-**Estado:** versión 1.0 · preparación común del caso; no constituye solución de las evidencias E2–E6.
+**Estado:** versión 1.1 · preparación común del caso; corrección de la definición explícita de la malla `EPSG:32618` a 20 m; no constituye solución de las evidencias E2–E6.
