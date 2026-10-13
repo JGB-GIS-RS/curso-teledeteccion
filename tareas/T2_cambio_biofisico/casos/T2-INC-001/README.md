@@ -115,9 +115,7 @@ No se aceptará como evidencia suficiente el porcentaje global de nubosidad de l
 
 Para cada estado se calculará:
 
-[
-NBR = \frac{\rho_{B8A}-\rho_{B12}}{\rho_{B8A}+\rho_{B12}}
-]
+`NBR = (ρ_B8A - ρ_B12) / (ρ_B8A + ρ_B12)`
 
 El informe deberá explicar por qué el contraste NIR–SWIR2 responde a cambios en vegetación, humedad y condiciones superficiales asociadas al fuego.
 
@@ -141,17 +139,13 @@ Una disminución de NBR constituye evidencia de cambio espectral compatible con 
 
 La evolución POST→REC se analizará mediante:
 
-[
-\Delta NBR_{POST\rightarrow REC} = NBR_{REC}-NBR_{POST}
-]
+`ΔNBR_POST→REC = NBR_REC - NBR_POST`
 
 Valores positivos indican incremento de NBR respecto de la condición POST.
 
 También se analizará:
 
-[
-\Delta NBR_{PRE\rightarrow REC} = NBR_{REC}-NBR_{PRE}
-]
+`ΔNBR_PRE→REC = NBR_REC - NBR_PRE`
 
 Esta segunda diferencia expresa la distancia espectral del estado REC respecto de PRE.
 
@@ -163,21 +157,15 @@ Las comparaciones deberán utilizar máscaras comunes explícitas.
 
 Para PRE–POST:
 
-[
-M_{PP}=M_{PRE}\cap M_{POST}
-]
+`M_PP = M_PRE ∩ M_POST`
 
 Para POST–REC:
 
-[
-M_{PR}=M_{POST}\cap M_{REC}
-]
+`M_PR = M_POST ∩ M_REC`
 
 Cuando se comparen conjuntamente PRE, POST y REC:
 
-[
-M_{ALL}=M_{PRE}\cap M_{POST}\cap M_{REC}
-]
+`M_ALL = M_PRE ∩ M_POST ∩ M_REC`
 
 No deberán compararse estadísticos calculados sobre poblaciones espaciales diferentes sin advertirlo y justificarlo.
 
@@ -233,15 +221,11 @@ No se evaluará positivamente la simple conversión de dNBR en clases de severid
 
 Análisis de:
 
-[
-\Delta NBR_{POST\rightarrow REC}
-]
+`ΔNBR_POST→REC`
 
 y
 
-[
-\Delta NBR_{PRE\rightarrow REC}
-]
+`ΔNBR_PRE→REC`
 
 La evidencia deberá permitir establecer dónde la respuesta espectral aumenta después del estado POST y hasta qué punto REC se aproxima espectralmente a PRE.
 
