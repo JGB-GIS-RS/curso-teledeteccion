@@ -50,10 +50,11 @@ El análisis utilizará una sola observación:
 | **Control complementario** | Cloud Score+ `cs_cdf` |
 | **Umbral inicial de claridad** | `cs_cdf ≥ 0.60` |
 | **Cobertura válida del gránulo seleccionado** | 100 % del AOI a 20 m |
+| **Cobertura válida de la preparación final** | 99.9304 % del AOI a 20 m |
 | **Resolución común de análisis** | 20 m |
 | **CRS común de análisis** | `EPSG:32618` (UTM zona 18N) |
 
-La fecha fue seleccionada después de una auditoría por fecha única. Posteriormente se auditaron individualmente los tres gránulos del 10-ago-2026 y se fijó el producto `18NUJ`, que cubre el 100 % del AOI bajo la máscara del caso a 20 m. En esta TAREA no se realizará análisis temporal ni mosaico diario.
+La fecha fue seleccionada después de una auditoría por fecha única. Posteriormente se auditaron individualmente los tres gránulos del 10-ago-2026 y se fijó el producto `18NUJ`, que cubre el 100 % del AOI bajo la máscara del caso a 20 m. Tras la armonización de bandas sobre la malla común de análisis, la cobertura válida final es 99.9304 %. En esta TAREA no se realizará análisis temporal ni mosaico diario.
 
 ## Materiales del caso
 
@@ -415,4 +416,4 @@ La calidad del trabajo dependerá de la capacidad del estudiante para explicar n
 
 ---
 
-**Versión del caso:** 1.3 · **Estado:** diseño técnico cerrado; AOI y script base v1.2 con producto Sentinel-2 fijo · semestre 2026-2.
+**Versión del caso:** 1.4 · **Estado:** diseño técnico cerrado; AOI y script base v1.2 validados con producto Sentinel-2 fijo · semestre 2026-2.
