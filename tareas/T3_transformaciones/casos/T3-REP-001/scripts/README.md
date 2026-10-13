@@ -18,12 +18,34 @@ El script prepara la observación común sobre la cual se desarrollará toda la 
 - calcula la cobertura válida de la observación preparada;
 - muestra las tres composiciones de referencia.
 
+## Bloque E2 · superficies de referencia y firmas espectrales
+
+[`firmas_espectrales_gee.js`](firmas_espectrales_gee.js) · **versión 1.0**
+
+Este bloque se agrega después del script base v1.2. No selecciona geometrías por el estudiante.
+
+El protocolo fija:
+
+- cuatro tipos de superficie;
+- cuatro polígonos independientes por tipo;
+- 16 polígonos en total;
+- tamaño recomendado de 9–25 píxeles válidos de 20 m por polígono;
+- selección previa a NDVI, NDBI y PCA;
+- extracción sobre la misma imagen `analysis20m`;
+- firmas con `B2, B3, B4, B5, B6, B7, B8, B8A, B11, B12`;
+- mediana como tendencia central;
+- P25–P75 como medida de dispersión.
+
+El script audita tamaño y soporte, extrae los píxeles y genera la gráfica de medianas. Los polígonos deben ser dibujados y justificados por el estudiante.
+
+Las superficies de referencia **no son muestras de entrenamiento**.
+
 ## Qué NO resuelve
 
 El script no contiene una solución de la TAREA. El estudiante deberá desarrollar y documentar:
 
-- selección de superficies de referencia;
-- extracción y análisis de firmas espectrales;
+- selección y justificación de las superficies de referencia;
+- interpretación de las firmas espectrales y de su dispersión;
 - NDVI;
 - NDBI;
 - PCA;
