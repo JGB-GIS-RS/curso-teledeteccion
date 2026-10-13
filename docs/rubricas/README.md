@@ -5,8 +5,10 @@ Esta carpeta reúne las rúbricas públicas de evaluación de la **Serie Técnic
 ## Rúbricas disponibles
 
 - [`T1_rubrica.md`](T1_rubrica.md) — **TAREA 1 · Diseño de una estrategia de observación remota**. Versión 1.0.
+- [`T2_rubrica.md`](T2_rubrica.md) — **TAREA 2 · Cambio espectral y recuperación postincendio**. Versión 1.0.
+- [`T3_rubrica.md`](T3_rubrica.md) — **TAREA 3 · Transformaciones y estructura espectral**. Versión 1.0.
 
-Las rúbricas de T2, T3 y T4 se incorporarán únicamente cuando cada TAREA haya sido metodológicamente cerrada.
+La rúbrica de T4 se incorporará cuando la TAREA haya sido metodológicamente cerrada.
 
 ## Arquitectura general
 
