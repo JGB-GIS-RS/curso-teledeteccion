@@ -3,14 +3,14 @@
 // Sector Cali-Candelaria, valle del rio Cauca
 //
 // SCRIPT BASE · PREPARACION MULTIESPECTRAL
-// Version 1.1
+// Version 1.2
 //
-// Este script fija la observacion comun de la TAREA.
+// Este script fija UNA observacion Sentinel-2 concreta para toda la TAREA.
 // NO resuelve firmas, indices ni PCA.
 //
 // Flujo:
-// AOI -> Sentinel-2 + Cloud Score+ -> mascara QA -> reflectancia
-//     -> mosaico diario -> malla comun 20 m -> composiciones base
+// AOI -> granulo Sentinel-2 seleccionado -> Cloud Score+ -> mascara QA
+//     -> reflectancia -> malla comun 20 m -> composiciones base
 // ============================================================================
 
 
@@ -46,18 +46,17 @@ print(
 
 var DATE = '2026-08-10';
 
+var PRODUCT_ID =
+  'S2A_MSIL2A_20260810T153641_N0512_R068_T18NUJ_20260811T003714';
+
 var QA_BAND = 'cs_cdf';
 var CLEAR_THRESHOLD = 0.60;
 
 var ANALYSIS_SCALE = 20;
 
-// CRS proyectado comun del caso.
-// Cali-Candelaria se encuentra en UTM zona 18N.
+// CRS comun del caso: UTM zona 18N.
 var TARGET_CRS = 'EPSG:32618';
 
-// Bandas disponibles para el trabajo espectral.
-// B8 se conserva porque se utiliza en falso color, NDVI y NDBI.
-// El PCA del caso usa el subconjunto PCA_BANDS.
 var ANALYSIS_BANDS = [
   'B2', 'B3', 'B4',
   'B5', 'B6', 'B7',
@@ -74,113 +73,135 @@ var PCA_BANDS = [
 
 
 // ============================================================================
-// 2. COLECCIONES
+// 2. SELECCION DEL GRANULO
+//
+// Durante la auditoria del 10-ago-2026 se encontraron tres granulos.
+// Se fija el producto T18NUJ de Sentinel-2A porque cubre el 100 % del AOI
+// bajo la mascara del caso a 20 m y presenta menor nubosidad global que
+// la otra observacion Sentinel-2A con cobertura completa.
+//
+// No se construye mosaico diario.
 // ============================================================================
 
-var start = ee.Date(DATE);
-var end = start.advance(1, 'day');
-
-var s2 = ee.ImageCollection(
+var s2Selected = ee.ImageCollection(
     'COPERNICUS/S2_SR_HARMONIZED'
   )
   .filterBounds(aoi)
-  .filterDate(start, end);
+  .filterDate(DATE, ee.Date(DATE).advance(1, 'day'))
+  .filter(
+    ee.Filter.eq(
+      'PRODUCT_ID',
+      PRODUCT_ID
+    )
+  );
 
 var csPlus = ee.ImageCollection(
   'GOOGLE/CLOUD_SCORE_PLUS/V1/S2_HARMONIZED'
 );
 
-var day = s2.linkCollection(
+var linked = s2Selected.linkCollection(
   csPlus,
   [QA_BAND]
 );
 
 print('Fecha fija:', DATE);
-print('Granulos Sentinel-2 del dia:', day.size());
+print('Producto fijo:', PRODUCT_ID);
+print('Numero de productos seleccionados:', linked.size());
+
+var raw = ee.Image(
+  linked.first()
+);
+
+print('MGRS:', raw.get('MGRS_TILE'));
+print('Satelite:', raw.get('SPACECRAFT_NAME'));
+print(
+  'CLOUDY_PIXEL_PERCENTAGE de la escena:',
+  raw.get('CLOUDY_PIXEL_PERCENTAGE')
+);
 
 
 // ============================================================================
-// 3. MASCARA DE CALIDAD POR GRANULO
+// 3. MASCARA DE CALIDAD Y REFLECTANCIA
 // ============================================================================
 
-function prepareGranule(img) {
+var clear = raw
+  .select(QA_BAND)
+  .gte(CLEAR_THRESHOLD);
 
-  var clear = img
-    .select(QA_BAND)
-    .gte(CLEAR_THRESHOLD);
+var scl = raw.select('SCL');
 
-  var scl = img.select('SCL');
+var sclValid = scl
+  .neq(0)       // no data
+  .and(scl.neq(1))    // saturated / defective
+  .and(scl.neq(3))    // cloud shadow
+  .and(scl.neq(8))    // cloud medium probability
+  .and(scl.neq(9))    // cloud high probability
+  .and(scl.neq(10))   // cirrus
+  .and(scl.neq(11));  // snow / ice
 
-  var sclValid = scl
-    .neq(0)       // no data
-    .and(scl.neq(1))    // saturated / defective
-    .and(scl.neq(3))    // cloud shadow
-    .and(scl.neq(8))    // cloud medium probability
-    .and(scl.neq(9))    // cloud high probability
-    .and(scl.neq(10))   // cirrus
-    .and(scl.neq(11));  // snow / ice
+// Se conserva agua: puede aportar contraste espectral en T3.
+var spectralValid = raw
+  .select(ANALYSIS_BANDS)
+  .mask()
+  .reduce(
+    ee.Reducer.min()
+  );
 
-  // Exigimos soporte simultaneo en las bandas que se usaran en T3.
-  var spectralValid = img
-    .select(ANALYSIS_BANDS)
-    .mask()
-    .reduce(ee.Reducer.min());
+var validMask = clear
+  .and(sclValid)
+  .and(spectralValid)
+  .rename('valid');
 
-  var valid = clear
-    .and(sclValid)
-    .and(spectralValid)
-    .rename('valid');
-
-  // Sentinel-2 SR Harmonized almacena reflectancia escalada por 10000.
-  var reflectance = img
-    .select(ANALYSIS_BANDS)
-    .multiply(0.0001)
-    .toFloat();
-
-  return reflectance
-    .addBands(img.select(QA_BAND))
-    .addBands(valid)
-    .updateMask(valid)
-    .copyProperties(img, [
-      'system:time_start',
-      'PRODUCT_ID',
-      'MGRS_TILE',
-      'SPACECRAFT_NAME'
-    ]);
-}
-
-var preparedGranules = day.map(prepareGranule);
-
-
-// ============================================================================
-// 4. OBSERVACION DIARIA UNICA
-//
-// Si el AOI intersecta varios granulos el mismo dia, qualityMosaic selecciona
-// por pixel el granulo valido con mayor cs_cdf.
-// ============================================================================
-
-var daily = preparedGranules
-  .qualityMosaic(QA_BAND)
+var reflectance = raw
+  .select(ANALYSIS_BANDS)
+  .multiply(0.0001)
+  .toFloat()
+  .updateMask(validMask)
   .clip(aoi);
 
-print('Observacion diaria preparada:', daily);
+print(
+  'Observacion seleccionada y enmascarada:',
+  reflectance
+);
+
+
+// ============================================================================
+// 4. COBERTURA VALIDA DEL GRANULO A 20 m
+// ============================================================================
+
+var validPctGranule = ee.Number(
+  validMask
+    .unmask(0)
+    .reduceRegion({
+      reducer: ee.Reducer.mean(),
+      geometry: aoi,
+      scale: ANALYSIS_SCALE,
+      crs: TARGET_CRS,
+      maxPixels: 1e8,
+      tileScale: 4
+    })
+    .get('valid')
+)
+.multiply(100);
+
+print(
+  'Cobertura valida del granulo a 20 m [%]:',
+  validPctGranule
+);
 
 
 // ============================================================================
 // 5. MALLA COMUN DE 20 m
 //
-// Se fija explicitamente EPSG:32618 (UTM zona 18N) a 20 m.
-//
-// Las bandas continuas se remuestrean bilinealmente. Esta decision evita
-// depender de la transformacion interna de un mosaico construido a partir de
-// varios granulos, cuya transform() no debe pasarse directamente a reproject.
-//
-// No se cambia la resolucion fisica del sensor: se define una malla comun para
-// que comparaciones multibanda y PCA utilicen el mismo soporte espacial.
+// Las bandas continuas se remuestrean bilinealmente sobre EPSG:32618 a 20 m.
+// Esta malla comun se utiliza para comparaciones multibanda y PCA.
 // ============================================================================
 
-var targetProjection = ee.Projection(TARGET_CRS)
-  .atScale(ANALYSIS_SCALE);
+var targetProjection = ee.Projection(
+  TARGET_CRS
+).atScale(
+  ANALYSIS_SCALE
+);
 
 print(
   'Proyeccion comun de analisis:',
@@ -189,7 +210,7 @@ print(
 
 function toCommon20m(bandName) {
 
-  return daily
+  return reflectance
     .select(bandName)
     .resample('bilinear')
     .reproject({
@@ -208,25 +229,33 @@ var analysis20m = ee.ImageCollection.fromImages(
 .rename(ANALYSIS_BANDS)
 .clip(aoi);
 
-var pcaInput = analysis20m.select(PCA_BANDS);
+var pcaInput = analysis20m.select(
+  PCA_BANDS
+);
 
-print('Bandas de analysis20m:', analysis20m.bandNames());
-print('Bandas reservadas para PCA:', pcaInput.bandNames());
+print(
+  'Bandas de analysis20m:',
+  analysis20m.bandNames()
+);
+
+print(
+  'Bandas reservadas para PCA:',
+  pcaInput.bandNames()
+);
 
 
 // ============================================================================
-// 6. COBERTURA VALIDA DE LA PREPARACION FINAL
-//
-// Este valor es el que debe reportarse si se mantiene exactamente esta
-// preparacion. La auditoria exploratoria previa se realizo a 120 m.
+// 6. COBERTURA DE LA PREPARACION FINAL
 // ============================================================================
 
 var commonValid = analysis20m
   .mask()
-  .reduce(ee.Reducer.min())
+  .reduce(
+    ee.Reducer.min()
+  )
   .rename('valid_common');
 
-var validPct = ee.Number(
+var validPctFinal = ee.Number(
   commonValid
     .unmask(0)
     .reduceRegion({
@@ -243,16 +272,15 @@ var validPct = ee.Number(
 
 print(
   'Cobertura valida de la preparacion final [%]:',
-  validPct
+  validPctFinal
 );
 
 
 // ============================================================================
 // 7. COMPOSICIONES BASE
 //
-// Se entregan como referencias comunes de visualizacion.
-// La evidencia E3 exige INTERPRETAR por que cada composicion revela
-// determinados contrastes; no basta con generarlas.
+// Estas capas son referencias comunes de visualizacion.
+// La evidencia E3 exige INTERPRETAR los contrastes; no basta con mostrarlas.
 // ============================================================================
 
 var VIS_RGB = {
@@ -317,7 +345,7 @@ Map.addLayer(
 //   - superficie construida
 //   - suelo expuesto
 //
-// Las geometrías NO son muestras de entrenamiento.
+// Las geometrias NO son muestras de entrenamiento.
 
 
 // TODO B · FIRMAS ESPECTRALES
@@ -353,8 +381,8 @@ Map.addLayer(
 // ============================================================================
 
 print('============================================================');
-print('T3-REP-001 · SCRIPT BASE');
-print('Producto:', 'COPERNICUS/S2_SR_HARMONIZED');
+print('T3-REP-001 · SCRIPT BASE v1.2');
+print('Producto:', PRODUCT_ID);
 print('Fecha:', DATE);
 print('Cloud Score+: cs_cdf >=', CLEAR_THRESHOLD);
 print('CRS comun:', TARGET_CRS);
