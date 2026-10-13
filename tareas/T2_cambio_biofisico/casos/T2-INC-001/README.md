@@ -86,15 +86,17 @@ Las lecturas fundamentales del caso son:
 
 Estas lecturas no se asignan para realizar una revisión bibliográfica extensa. Su función es sustentar decisiones concretas del método y, simultáneamente, delimitar las condiciones de validez y las principales fuentes de incertidumbre de NBR/dNBR.
 
-## Materiales comunes
+## Materiales del caso
 
 El estudiante deberá consultar conjuntamente:
 
+- [Área de estudio · AOI_ANALYSIS](datos/aoi_analysis.geojson)
+- [Documentación de los datos del caso](datos/README.md)
 - [Rúbrica de TAREA 2](../../../../docs/rubricas/T2_rubrica.md)
 - [Guía para autores](../../../../docs/guia_general/guia_para_autores.md)
 - [Informe técnico de referencia y base editable](../../../../examples/informe_tecnico_02/)
 
-Los datos, geometrías y scripts específicos del caso se incorporarán en las subcarpetas correspondientes del caso antes de su aplicación en aula.
+El AOI_ANALYSIS suministrado es el **dominio de análisis** del ejercicio y no representa el perímetro oficial del incendio ni una delimitación de superficie quemada. Los scripts específicos del caso se incorporarán en la subcarpeta correspondiente antes de su aplicación en aula.
 
 ## Decisiones técnicas que debe resolver el informe
 
