@@ -23,14 +23,18 @@ El AOI se utiliza como **dominio analítico**. No representa límites administra
 
 La TAREA utiliza la observación Sentinel-2 del **10-ago-2026**.
 
-- producto: `COPERNICUS/S2_SR_HARMONIZED`;
+- colección: `COPERNICUS/S2_SR_HARMONIZED`;
+- producto fijo: `S2A_MSIL2A_20260810T153641_N0512_R068_T18NUJ_20260811T003714`;
+- satélite: Sentinel-2A;
+- tesela MGRS: `18NUJ`;
 - nivel: Level-2A / Surface Reflectance;
+- `CLOUDY_PIXEL_PERCENTAGE` de la escena: 2.92416 %;
 - control complementario: `GOOGLE/CLOUD_SCORE_PLUS/V1/S2_HARMONIZED`;
 - criterio inicial de claridad: `cs_cdf ≥ 0.60`;
 - resolución común de análisis: 20 m;
 - CRS común de análisis: `EPSG:32618` (UTM zona 18N).
 
-Durante la selección exploratoria, esta fecha alcanzó **100 % de cobertura válida en la auditoría ligera realizada a 120 m**. El script base vuelve a calcular la cobertura sobre la preparación final del caso; por tanto, el estudiante deberá reportar el valor obtenido bajo la máscara y escala efectivamente utilizadas en su análisis.
+La auditoría individual de los tres gránulos del 10-ago-2026 mostró que dos productos Sentinel-2A cubren el **100 % del AOI a 20 m** bajo la máscara del caso. Se seleccionó la tesela `18NUJ` porque conserva esa cobertura completa y presenta menor nubosidad global que la alternativa `18NUK` (26.81945 %). No se requiere mosaico diario.
 
 ## Geometrías de superficies de referencia
 
