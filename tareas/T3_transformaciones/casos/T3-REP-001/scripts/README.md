@@ -4,16 +4,16 @@ Esta carpeta contiene el punto de partida reproducible del caso T3-REP-001.
 
 ## Script base
 
-[`base_preparacion_multiespectral_gee.js`](base_preparacion_multiespectral_gee.js) · **versión 1.1**
+[`base_preparacion_multiespectral_gee.js`](base_preparacion_multiespectral_gee.js) · **versión 1.2**
 
 El script prepara la observación común sobre la cual se desarrollará toda la TAREA:
 
 - carga el AOI;
-- recupera los gránulos Sentinel-2 del 10-ago-2026;
+- recupera el producto Sentinel-2A fijo `S2A_MSIL2A_20260810T153641_N0512_R068_T18NUJ_20260811T003714`;
 - enlaza Cloud Score+;
 - aplica la máscara de calidad;
 - convierte las bandas a reflectancia superficial;
-- construye una observación diaria única;
+- trabaja con un único gránulo, sin mosaico diario;
 - organiza las bandas sobre una malla común de 20 m en `EPSG:32618` (UTM 18N);
 - calcula la cobertura válida de la observación preparada;
 - muestra las tres composiciones de referencia.
@@ -49,4 +49,4 @@ La preparación radiométrica y geométrica se fija para que todos los grupos co
 
 ---
 
-**Estado:** versión 1.1 · preparación común del caso; corrección de la definición explícita de la malla `EPSG:32618` a 20 m; no constituye solución de las evidencias E2–E6.
+**Estado:** versión 1.2 · preparación común del caso basada en un único gránulo Sentinel-2A con 100 % de cobertura válida del AOI a 20 m; no constituye solución de las evidencias E2–E6.
