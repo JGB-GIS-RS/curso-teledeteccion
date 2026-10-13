@@ -27,7 +27,8 @@ La TAREA utiliza la observación Sentinel-2 del **10-ago-2026**.
 - nivel: Level-2A / Surface Reflectance;
 - control complementario: `GOOGLE/CLOUD_SCORE_PLUS/V1/S2_HARMONIZED`;
 - criterio inicial de claridad: `cs_cdf ≥ 0.60`;
-- resolución común de análisis: 20 m.
+- resolución común de análisis: 20 m;
+- CRS común de análisis: `EPSG:32618` (UTM zona 18N).
 
 Durante la selección exploratoria, esta fecha alcanzó **100 % de cobertura válida en la auditoría ligera realizada a 120 m**. El script base vuelve a calcular la cobertura sobre la preparación final del caso; por tanto, el estudiante deberá reportar el valor obtenido bajo la máscara y escala efectivamente utilizadas en su análisis.
 
