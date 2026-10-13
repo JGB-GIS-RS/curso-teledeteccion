@@ -61,4 +61,4 @@ La clasificación, validación y modelación corresponden a T4.
 
 ## Estado
 
-Arquitectura académica definida. El caso T3-REP-001 cuenta con diseño técnico y evidencias obligatorias definidas; los materiales específicos de datos y scripts se incorporarán progresivamente.
+Arquitectura académica definida. El caso T3-REP-001 cuenta con diseño técnico, evidencias obligatorias, AOI y script base de preparación multiespectral disponibles.
