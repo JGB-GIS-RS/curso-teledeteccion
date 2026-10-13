@@ -1,0 +1,34 @@
+{
+  "type": "FeatureCollection",
+  "name": "aoi_analysis",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "T3-REP-001_AOI_ANALYSIS",
+        "case": "T3-REP-001",
+        "role": "dominio de análisis",
+        "sector": "Cali-Candelaria, valle del río Cauca",
+        "west": -76.55,
+        "south": 3.39,
+        "east": -76.36,
+        "north": 3.56,
+        "approx_area_km2_gee": 398.6340816756004,
+        "crs": "EPSG:4326",
+        "note": "Dominio rectangular de análisis del caso. No representa límites administrativos ni una clasificación temática."
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-76.55, 3.39],
+            [-76.36, 3.39],
+            [-76.36, 3.56],
+            [-76.55, 3.56],
+            [-76.55, 3.39]
+          ]
+        ]
+      }
+    }
+  ]
+}
