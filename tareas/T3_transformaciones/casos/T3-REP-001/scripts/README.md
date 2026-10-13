@@ -49,4 +49,4 @@ La preparación radiométrica y geométrica se fija para que todos los grupos co
 
 ---
 
-**Estado:** versión 1.2 · preparación común del caso basada en un único gránulo Sentinel-2A con 100 % de cobertura válida del AOI a 20 m; no constituye solución de las evidencias E2–E6.
+**Estado:** versión 1.2 validada · el gránulo seleccionado presenta 100 % de cobertura válida del AOI antes de la armonización espacial y 99.9304 % en la preparación final sobre la malla común de 20 m; no constituye solución de las evidencias E2–E6.
