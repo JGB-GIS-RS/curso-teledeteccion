@@ -47,10 +47,24 @@ El análisis utilizará una sola observación:
 | **Nivel** | Level-2A / Surface Reflectance |
 | **Control complementario** | Cloud Score+ `cs_cdf` |
 | **Umbral inicial de claridad** | `cs_cdf ≥ 0.60` |
-| **Cobertura válida auditada** | 100 % del AOI |
+| **Cobertura válida en auditoría de selección** | 100 % del AOI a 120 m |
 | **Resolución común de análisis** | 20 m |
 
 La fecha fue seleccionada después de una auditoría por fecha única de las observaciones disponibles. En esta TAREA no se realizará análisis temporal.
+
+## Materiales del caso
+
+El estudiante deberá utilizar conjuntamente:
+
+- [Área de estudio · AOI_ANALYSIS](datos/aoi_analysis.geojson)
+- [Documentación de datos y observación](datos/README.md)
+- [Script base de preparación multiespectral](scripts/base_preparacion_multiespectral_gee.js)
+- [Documentación del script base](scripts/README.md)
+- [Rúbrica de TAREA 3](../../../../docs/rubricas/T3_rubrica.md)
+- [Guía para autores](../../../../docs/guia_general/guia_para_autores.md)
+- [Informe técnico de referencia y base editable](../../../../examples/informe_tecnico_02/)
+
+El script suministrado fija la preparación común de la observación. **No contiene la solución de firmas espectrales, NDVI, NDBI ni PCA.**
 
 ## Bandas de trabajo
 
@@ -398,4 +412,4 @@ La calidad del trabajo dependerá de la capacidad del estudiante para explicar n
 
 ---
 
-**Versión del caso:** 1.0 · **Estado:** diseño técnico cerrado; materiales específicos en preparación · semestre 2026-2.
+**Versión del caso:** 1.1 · **Estado:** diseño técnico cerrado; AOI y script base disponibles · semestre 2026-2.
