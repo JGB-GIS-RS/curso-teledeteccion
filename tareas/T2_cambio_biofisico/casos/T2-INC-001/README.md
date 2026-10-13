@@ -127,9 +127,7 @@ No será suficiente afirmar que NBR “sirve para incendios”.
 
 La perturbación se expresará mediante:
 
-[
-dNBR = NBR_{PRE}-NBR_{POST}
-]
+`dNBR = NBR_PRE - NBR_POST`
 
 Valores positivos indican una disminución de NBR entre PRE y POST.
 
