@@ -34,6 +34,8 @@ Pregunta guía: **¿Cómo clasificar, validar y modelar el cambio territorial?**
 
 Ruta: [`T4_clasificacion_modelado/`](T4_clasificacion_modelado/)
 
+Caso disponible: [`T4-LUL-001` · Clasificación supervisada y cambios LULC en Barranquilla](T4_clasificacion_modelado/casos/T4-LUL-001/).
+
 ## Codificación de casos
 
 Los casos siguen la estructura:
@@ -49,4 +51,4 @@ El código identifica el caso; territorio, periodo, sensor o método pueden camb
 - **T1:** primer caso piloto publicado (`T1-CAF-001`).
 - **T2:** arquitectura definida; casos en desarrollo.
 - **T3:** arquitectura definida; casos en desarrollo.
-- **T4:** arquitectura definida; casos y modalidades de desafío en desarrollo.
+- **T4:** caso retrospectivo publicado (`T4-LUL-001`); modalidades de modelación prospectiva en desarrollo.

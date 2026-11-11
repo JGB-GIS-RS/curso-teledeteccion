@@ -8,7 +8,9 @@ Esta carpeta reúne las rúbricas públicas de evaluación de la **Serie Técnic
 - [`T2_rubrica.md`](T2_rubrica.md) — **TAREA 2 · Cambio espectral y recuperación postincendio**. Versión 1.0.
 - [`T3_rubrica.md`](T3_rubrica.md) — **TAREA 3 · Transformaciones y estructura espectral**. Versión 1.0.
 
-La rúbrica de T4 se incorporará cuando la TAREA haya sido metodológicamente cerrada.
+- [`T4-LUL-001_rubrica.md`](T4-LUL-001_rubrica.md) — **TAREA 4 · Caso T4-LUL-001: clasificación supervisada y análisis retrospectivo de cambios LULC**. Versión 1.0.
+
+Esta rúbrica es específica del caso retrospectivo T4-LUL-001 y no sustituye las futuras rúbricas de modalidades predictivas.
 
 ## Arquitectura general
 
