@@ -88,12 +88,13 @@ Los códigos, definiciones de clases y colores de representación deberán mante
 
 Los materiales que se pondrán a disposición de los estudiantes son:
 
-- Las tres escenas Landsat identificadas anteriormente.
-- `aoi.shp`, con los archivos auxiliares necesarios para su correcta lectura.
-- `dominio_terrestre.tif`, como máscara común opcional.
+- Las tres escenas Landsat identificadas anteriormente (**suministradas por el docente fuera de GitHub**).
+- [Área de estudio `aoi.shp` y archivos auxiliares](datos/).
+- [Máscara común `dominio_terrestre.tif`](datos/dominio_terrestre.tif), de uso opcional.
+- [Documentación de los datos suministrados](datos/README.md).
 - [Rúbrica de evaluación de T4-LUL-001](../../../../docs/rubricas/T4-LUL-001_rubrica.md).
 
-Los insumos raster y vectoriales se suministrarán por el canal de distribución del curso; no se incorporan a este repositorio con la publicación del enunciado.
+El AOI y la máscara terrestre están disponibles en la [carpeta `datos/`](datos/). Las escenas Landsat se suministrarán por el canal de distribución del curso y no están almacenadas en este repositorio.
 
 ## Decisiones técnicas que debe resolver el ejercicio
 
