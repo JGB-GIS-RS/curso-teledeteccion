@@ -52,9 +52,9 @@ Las superficies de agua se excluirán mediante una máscara compartida por las d
 
 La máscara deberá aplicarse de manera consistente a T1 y T2 para que las diferencias calculadas no respondan a cambios en la extensión del área analizada.
 
-## Observaciones Landsat disponibles
+## Escenas Landsat de referencia para descarga
 
-Se suministrarán tres escenas Landsat 8, Collection 2, Level-2, todas correspondientes a **Path 009 / Row 052**.
+Se identifican a continuación tres escenas Landsat 8, Collection 2, Level-2, correspondientes a **Path 009 / Row 052**. **Cada grupo deberá localizar y descargar por su cuenta las dos escenas correspondientes al periodo de comparación que seleccione**, utilizando las fechas de adquisición y los identificadores indicados en la tabla. Las imágenes no serán suministradas por el docente ni están alojadas en este repositorio.
 
 | Año | Fecha exacta | Identificador Landsat |
 |---|---|---|
@@ -86,15 +86,15 @@ Los códigos, definiciones de clases y colores de representación deberán mante
 
 ## Materiales del caso
 
-Los materiales que se pondrán a disposición de los estudiantes son:
+Los insumos disponibles y las referencias necesarias para desarrollar el ejercicio son:
 
-- Las tres escenas Landsat identificadas anteriormente (**suministradas por el docente fuera de GitHub**).
+- **Referencias para obtener las imágenes Landsat:** fechas e identificadores de la tabla anterior. La búsqueda y descarga de las dos escenas seleccionadas es responsabilidad de cada grupo.
 - [Área de estudio `aoi.shp` y archivos auxiliares](datos/).
 - [Máscara común `dominio_terrestre.tif`](datos/dominio_terrestre.tif), de uso opcional.
-- [Documentación de los datos suministrados](datos/README.md).
+- [Documentación de los datos geoespaciales y referencias Landsat](datos/README.md).
 - [Rúbrica de evaluación de T4-LUL-001](../../../../docs/rubricas/T4-LUL-001_rubrica.md).
 
-El AOI y la máscara terrestre están disponibles en la [carpeta `datos/`](datos/). Las escenas Landsat se suministrarán por el canal de distribución del curso y no están almacenadas en este repositorio.
+El AOI y la máscara terrestre están disponibles en la [carpeta `datos/`](datos/). **Las escenas Landsat deberán ser descargadas por los estudiantes desde una fuente de distribución de productos Landsat**, empleando los identificadores exactos publicados en este enunciado. No se entregarán archivos de imágenes satelitales como parte de los materiales del curso.
 
 ## Decisiones técnicas que debe resolver el ejercicio
 
