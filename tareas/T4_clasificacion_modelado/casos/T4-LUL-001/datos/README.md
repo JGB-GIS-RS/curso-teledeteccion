@@ -43,9 +43,9 @@ La máscara no es una clasificación temática exclusiva de cuerpos de agua: el 
 
 El atributo de texto `origen` del Shapefile es descriptivo y **no define el CRS**: la referencia válida es el archivo `aoi.prj`, EPSG:32618.
 
-## Escenas Landsat previstas (no alojadas aquí)
+## Escenas Landsat que deben descargar los estudiantes
 
-Los archivos de las imágenes satelitales **no están incluidos en esta carpeta**. El docente los suministrará por el canal del curso.
+Los archivos de las imágenes satelitales **no están incluidos en esta carpeta y no serán suministrados por el docente**. Cada grupo deberá localizar y descargar directamente las dos escenas correspondientes al periodo que seleccione, utilizando los identificadores y fechas que se relacionan a continuación.
 
 | Año | Fecha de adquisición | Identificador de escena Landsat 8 Collection 2 Level-2 |
 |---|---|---|
@@ -53,7 +53,7 @@ Los archivos de las imágenes satelitales **no están incluidos en esta carpeta*
 | 2020 | 10-feb-2020 | `LC08_L2SP_009052_20200210_20200823_02_T1` |
 | 2025 | 07-feb-2025 | `LC08_L2SP_009052_20250207_20250214_02_T1` |
 
-Cada grupo, compuesto por **dos estudiantes**, seleccionará el periodo **2015–2020** o **2020–2025**.
+Cada grupo, compuesto por **dos estudiantes**, seleccionará el periodo **2015–2020** o **2020–2025** y descargará las **dos escenas** de ese periodo. No es necesario descargar las tres escenas.
 
 ## Integridad de los archivos originales
 
