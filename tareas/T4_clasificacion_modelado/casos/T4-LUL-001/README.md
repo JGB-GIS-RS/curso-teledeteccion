@@ -297,6 +297,32 @@ Además de la presentación PowerPoint, deberán entregarse los siguientes **arc
 - **`cambios_t1_t2.tif`**: raster que identifica permanencias y transiciones entre clases.
 - **Máscara del dominio terrestre utilizada**: `dominio_terrestre.tif` u otro raster equivalente, si se elaboró una máscara propia.
 
+### Organización obligatoria de la entrega
+
+Los productos se organizarán en **cinco carpetas según su función técnica**. La presentación PowerPoint se ubicará en la carpeta principal, con la siguiente estructura:
+
+```text
+T4-LUL-001_Apellido1_Apellido2/
+├── presentacion.pptx
+├── 01_datasets/
+│   ├── stack_t1.tif
+│   └── stack_t2.tif
+├── 02_muestras/
+│   ├── entrenamiento_t1.shp
+│   └── entrenamiento_t2.shp
+├── 03_clasificaciones/
+│   ├── lulc_t1.tif
+│   └── lulc_t2.tif
+├── 04_cambios/
+│   └── cambios_t1_t2.tif
+└── 05_dominio_mascaras/
+    └── dominio_terrestre.tif
+```
+
+En **`02_muestras/`**, cada archivo Shapefile deberá acompañarse de sus archivos auxiliares (al menos `.shx`, `.dbf` y `.prj`); alternativamente, podrán entregarse **`entrenamiento_t1.gpkg`** y **`entrenamiento_t2.gpkg`**. En **`05_dominio_mascaras/`** se incluirá la máscara terrestre efectivamente utilizada, aun cuando haya sido construida por el grupo y tenga un nombre diferente.
+
+Las matrices de confusión, la justificación de la selección de variables, los parámetros del clasificador y las tablas de superficies y transiciones se documentarán en la presentación; no se exige una carpeta independiente para cada evidencia E1–E8.
+
 Los archivos deberán conservar su información geoespacial y permitir su apertura y revisión en QGIS.
 
 **La presentación no sustituye la entrega de los archivos geoespaciales.**
