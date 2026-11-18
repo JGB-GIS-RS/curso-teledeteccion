@@ -141,7 +141,7 @@ La nota base se calculará así:
 
 ## 9. Presentación y entrega de archivos geoespaciales · 5 %
 
-**Sobresaliente.** La presentación PowerPoint contiene las evidencias requeridas y mantiene una secuencia metodológica clara. Se entregan, identificados y accesibles, `stack_t1.tif`, `stack_t2.tif`, polígonos de entrenamiento de ambas fechas (Shapefile completo o GeoPackage), `lulc_t1.tif`, `lulc_t2.tif`, `cambios_t1_t2.tif` y la máscara terrestre utilizada.
+**Sobresaliente.** La presentación PowerPoint contiene las evidencias requeridas y mantiene una secuencia metodológica clara. Se entregan, identificados y accesibles, `stack_t1.tif`, `stack_t2.tif`, polígonos de entrenamiento de ambas fechas (Shapefile completo o GeoPackage), `lulc_t1.tif`, `lulc_t2.tif`, `cambios_t1_t2.tif` y la máscara terrestre utilizada. Los productos se organizan en las carpetas `01_datasets`, `02_muestras`, `03_clasificaciones`, `04_cambios` y `05_dominio_mascaras`, con la presentación en la carpeta principal.
 
 **Sólido.** La presentación y los archivos están completos, con pequeñas deficiencias de organización.
 
