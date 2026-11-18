@@ -3,8 +3,8 @@
 ## Clasificación supervisada y análisis retrospectivo de cambios LULC en Barranquilla
 
 **Curso de Teledetección · TAREA 4**  
-**Versión 1.0 · Caso de aplicación**  
-**Modalidad:** presentación PowerPoint y productos geoespaciales · **Grupos de exactamente dos estudiantes**.
+**Versión 1.1 · Caso de aplicación**  
+**Modalidad:** presentación PowerPoint y productos geoespaciales · **Grupos de dos estudiantes**.
 
 Esta rúbrica evalúa la construcción de dos clasificaciones temáticas Landsat, su validación, el análisis de cambios con MOLUSCE y la entrega de evidencia técnica verificable.
 
@@ -57,7 +57,7 @@ La nota base se calculará así:
 
 ## 2. Construcción y justificación del dataset · 15 %
 
-**Sobresaliente.** Construye para cada fecha un dataset coherente que incorpora bandas espectrales, componentes PCA e índices seleccionados con justificación técnica. Identifica claramente las variables finales utilizadas.
+**Sobresaliente.** Entrega `stack_t1.tif` y `stack_t2.tif` con los datasets multibanda efectivamente utilizados, que incorporan bandas espectrales, componentes PCA e índices seleccionados. Justifica técnicamente la selección de variables, apoyándose cuando corresponda en análisis exploratorios como matrices de correlación.
 
 **Sólido.** Incorpora correctamente los tres grupos de variables y ofrece una justificación adecuada, con pequeñas omisiones.
 
@@ -69,7 +69,7 @@ La nota base se calculará así:
 
 ## 3. Obtención y documentación de muestras · 12 %
 
-**Sobresaliente.** Presenta al menos 30 polígonos por clase y fecha, adecuadamente distribuidos y vinculados a las categorías establecidas. Documenta las composiciones espectrales utilizadas y aporta las tres evidencias visuales solicitadas.
+**Sobresaliente.** Entrega los polígonos georreferenciados de cada fecha como `entrenamiento_t1.shp` y `entrenamiento_t2.shp` (con archivos auxiliares), o sus equivalentes GeoPackage. Presenta al menos 30 polígonos por clase y fecha, distribuidos y vinculados a las categorías establecidas. Documenta las composiciones espectrales utilizadas y aporta una evidencia visual por clase.
 
 **Sólido.** Cumple los requisitos de cantidad, identificación y distribución de muestras, con defectos menores.
 
@@ -117,7 +117,7 @@ La nota base se calculará así:
 
 ## 7. Análisis de cambios mediante MOLUSCE · 15 %
 
-**Sobresaliente.** Documenta el procesamiento en MOLUSCE y presenta correctamente superficies por clase en T1 y T2, cambios absolutos y relativos, matriz de transición en hectáreas y representación raster de las principales transiciones. Existe coherencia entre los resultados tabulares y espaciales.
+**Sobresaliente.** Documenta el procesamiento en MOLUSCE y presenta correctamente superficies por clase en T1 y T2, cambios absolutos y relativos, matriz de transición en hectáreas y entrega `cambios_t1_t2.tif`, con la codificación de las permanencias y transiciones. Existe coherencia entre los resultados tabulares y espaciales.
 
 **Sólido.** El análisis de cambios es completo y consistente, con omisiones menores de documentación o presentación.
 
@@ -141,7 +141,7 @@ La nota base se calculará así:
 
 ## 9. Presentación y entrega de archivos geoespaciales · 5 %
 
-**Sobresaliente.** La presentación PowerPoint contiene las evidencias requeridas, mantiene una secuencia metodológica clara y está acompañada de todos los datasets, polígonos, raster y máscara utilizados, correctamente identificados y accesibles.
+**Sobresaliente.** La presentación PowerPoint contiene las evidencias requeridas y mantiene una secuencia metodológica clara. Se entregan, identificados y accesibles, `stack_t1.tif`, `stack_t2.tif`, polígonos de entrenamiento de ambas fechas (Shapefile completo o GeoPackage), `lulc_t1.tif`, `lulc_t2.tif`, `cambios_t1_t2.tif` y la máscara terrestre utilizada.
 
 **Sólido.** La presentación y los archivos están completos, con pequeñas deficiencias de organización.
 
@@ -171,7 +171,7 @@ El bono no exige predicción ni simulación con MOLUSCE y no sustituye los produ
 
 ## Reglas de aplicación
 
-- Los grupos estarán conformados por **exactamente dos estudiantes**.
+- **Dos estudiantes por grupo**.
 - Cada criterio se evalúa con evidencias verificables.
 - Las dos fechas deben evaluarse temáticamente de forma independiente.
 - Se utilizará la proporción 70/30 de entrenamiento/validación establecida.
@@ -185,4 +185,4 @@ El bono no exige predicción ni simulación con MOLUSCE y no sustituye los produ
 ---
 
 **Caso de aplicación:** `T4-LUL-001` · Barranquilla y periferia.  
-**Versión:** 1.0.
+**Versión:** 1.1.
