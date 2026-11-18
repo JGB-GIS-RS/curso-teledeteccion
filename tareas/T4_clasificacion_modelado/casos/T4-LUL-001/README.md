@@ -3,12 +3,12 @@
 **Curso de Teledetección · TAREA 4 · Clasificación y modelado territorial**
 
 **Modalidad:** aplicación práctica con presentación de resultados y entrega de productos geoespaciales.  
-**Integrantes:** exactamente **dos estudiantes por grupo**.  
+**Integrantes:** dos estudiantes por grupo.  
 **Herramientas:** Orfeo ToolBox (OTB), QGIS y complemento MOLUSCE.
 
 ## Planteamiento del caso
 
-Barranquilla y su periferia constituyen un territorio en el que coexisten superficies urbanizadas, coberturas vegetales y ecosistemas costeros y estuarinos. La identificación de estas coberturas mediante imágenes satelitales permite analizar su distribución y estudiar las transformaciones ocurridas entre diferentes fechas.
+Barranquilla y su periferia constituyen un territorio en el que coexisten superficies urbanizadas, coberturas vegetales y ecosistemas costeros y estuarinos (zonas húmedas costeras que combinan aguas saladas y dulces). La identificación de estas coberturas mediante imágenes satelitales permite analizar su distribución y estudiar las transformaciones ocurridas entre diferentes fechas.
 
 En este ejercicio se utilizarán imágenes Landsat 8 correspondientes a 2015, 2020 y 2025. Cada grupo seleccionará dos fechas y construirá sus respectivas clasificaciones de uso y cobertura del suelo (*Land Use/Land Cover*, LULC).
 
@@ -54,7 +54,7 @@ La máscara deberá aplicarse de manera consistente a T1 y T2 para que las difer
 
 ## Escenas Landsat de referencia para descarga
 
-Se identifican a continuación tres escenas Landsat 8, Collection 2, Level-2, correspondientes a **Path 009 / Row 052**. **Cada grupo deberá localizar y descargar por su cuenta las dos escenas correspondientes al periodo de comparación que seleccione**, utilizando las fechas de adquisición y los identificadores indicados en la tabla. Las imágenes no serán suministradas por el docente ni están alojadas en este repositorio.
+Se identifican a continuación tres escenas Landsat 8, Collection 2, Level-2, correspondientes a **Path 009 / Row 052**. **Cada grupo deberá localizar y descargar por su cuenta las dos escenas correspondientes al periodo de comparación que seleccione**, utilizando las fechas de adquisición y los identificadores indicados en la tabla.
 
 | Año | Fecha exacta | Identificador Landsat |
 |---|---|---|
@@ -94,7 +94,7 @@ Los insumos disponibles y las referencias necesarias para desarrollar el ejercic
 - [Documentación de los datos geoespaciales y referencias Landsat](datos/README.md).
 - [Rúbrica de evaluación de T4-LUL-001](../../../../docs/rubricas/T4-LUL-001_rubrica.md).
 
-El AOI y la máscara terrestre están disponibles en la [carpeta `datos/`](datos/). **Las escenas Landsat deberán ser descargadas por los estudiantes desde una fuente de distribución de productos Landsat**, empleando los identificadores exactos publicados en este enunciado. No se entregarán archivos de imágenes satelitales como parte de los materiales del curso.
+El AOI y la máscara terrestre están disponibles en la [carpeta `datos/`](datos/).
 
 ## Decisiones técnicas que debe resolver el ejercicio
 
@@ -108,9 +108,7 @@ Cada grupo construirá un dataset para T1 y otro para T2 combinando:
 
 **Índices espectrales.** Selección libre de índices espectrales, acompañada de una justificación de su utilidad.
 
-Deberán reportarse las bandas, componentes e índices utilizados y explicar brevemente el aporte de estas variables a la clasificación.
-
-La construcción de ambos datasets deberá conservar coherencia metodológica.
+Cada grupo deberá **justificar la definición de los datasets de T1 y T2**: por qué seleccionó determinadas bandas espectrales, componentes PCA e índices, y cómo esas variables pueden contribuir a diferenciar las coberturas. La justificación podrá apoyarse en la respuesta espectral de las clases y en análisis exploratorios, por ejemplo, una **matriz de correlaciones** que permita identificar variables redundantes. No basta con enumerar las variables utilizadas.
 
 ### 2. ¿Cómo se obtendrán las muestras de clasificación?
 
@@ -143,7 +141,6 @@ El grupo deberá reportar:
 - Dataset de variables predictoras.
 - Tipo de kernel.
 - Parámetros de calibración, particularmente `C` y `gamma`, cuando correspondan.
-- Proporción entrenamiento/validación.
 
 Se obtendrá una clasificación raster para T1 y otra para T2.
 
@@ -210,7 +207,6 @@ Se generará una representación raster que permita identificar las áreas de pe
 
 El análisis estadístico de cambios se realizará en MOLUSCE. El raster de transiciones podrá obtenerse mediante herramientas de QGIS a partir de las clasificaciones T1 y T2.
 
-No se realizará entrenamiento de modelos predictivos dentro de MOLUSCE ni simulación de coberturas futuras.
 
 ### 7. ¿Cómo deben interpretarse los resultados?
 
@@ -231,11 +227,11 @@ Identificación de las escenas Landsat y el periodo seleccionado, delimitación 
 
 ### E2. Dataset de clasificación
 
-Relación de bandas, componentes PCA e índices espectrales utilizados para T1 y T2, con justificación de la selección.
+Entrega de los raster multibanda **`stack_t1.tif`** y **`stack_t2.tif`**, que contienen las variables predictoras efectivamente utilizadas en cada fecha (bandas espectrales, componentes PCA e índices seleccionados). La composición y justificación de cada dataset deberán explicarse en la presentación.
 
 ### E3. Muestras de entrenamiento
 
-Evidencia de los polígonos digitalizados, su distribución espacial y las composiciones de bandas empleadas. Una evidencia visual por clase.
+Entrega de los **polígonos digitalizados** de ambas fechas como **`entrenamiento_t1.shp`** y **`entrenamiento_t2.shp`** (incluidos sus archivos auxiliares), o como **`entrenamiento_t1.gpkg`** y **`entrenamiento_t2.gpkg`**. Deberán contener el atributo de código de clase. Se documentarán su distribución espacial y las composiciones de bandas empleadas, con una evidencia visual por clase. **Las capturas no sustituyen los archivos vectoriales.**
 
 ### E4. Clasificador y calibración
 
@@ -255,7 +251,7 @@ Evidencia del procesamiento en MOLUSCE, tabla de superficies por clase y matriz 
 
 ### E8. Distribución espacial e interpretación
 
-Raster de cambios o transiciones, análisis de resultados y conclusiones sustentadas en las superficies y conversiones identificadas.
+Entrega del raster **`cambios_t1_t2.tif`**, que permita localizar permanencias y transiciones entre coberturas, acompañado de la explicación de su codificación. Análisis y conclusiones sustentados en las superficies y conversiones identificadas.
 
 ## Producto técnico principal
 
@@ -293,15 +289,13 @@ No será necesario elaborar un informe técnico escrito adicional ni cumplir los
 
 ## Archivos digitales obligatorios
 
-Además de la presentación PowerPoint, deberán entregarse:
+Además de la presentación PowerPoint, deberán entregarse los siguientes **archivos geoespaciales**:
 
-- Dataset de variables predictoras de T1.
-- Dataset de variables predictoras de T2.
-- Polígonos de entrenamiento de T1 y T2, con su atributo de clase.
-- Raster de clasificación LULC de T1.
-- Raster de clasificación LULC de T2.
-- Raster de cambios o transiciones.
-- Máscara del dominio terrestre utilizada.
+- **`stack_t1.tif`** y **`stack_t2.tif`**: datasets multibanda con las variables predictoras de cada fecha.
+- **`entrenamiento_t1.shp`** y **`entrenamiento_t2.shp`** (con todos sus archivos auxiliares), o los equivalentes **`entrenamiento_t1.gpkg`** y **`entrenamiento_t2.gpkg`**: polígonos utilizados para construir las muestras, con su código de clase.
+- **`lulc_t1.tif`** y **`lulc_t2.tif`**: clasificaciones temáticas finales de ambas fechas.
+- **`cambios_t1_t2.tif`**: raster que identifica permanencias y transiciones entre clases.
+- **Máscara del dominio terrestre utilizada**: `dominio_terrestre.tif` u otro raster equivalente, si se elaboró una máscara propia.
 
 Los archivos deberán conservar su información geoespacial y permitir su apertura y revisión en QGIS.
 
@@ -340,7 +334,7 @@ El alcance se limita a la clasificación, evaluación temática y análisis retr
 
 ## Condiciones de desarrollo
 
-- **Los grupos deberán estar conformados por exactamente dos estudiantes.**
+- **Dos estudiantes por grupo.**
 - Cada grupo seleccionará uno de los dos periodos propuestos.
 - Se utilizarán los códigos temáticos establecidos.
 - Se obtendrán al menos 30 polígonos por clase y por fecha.
@@ -367,4 +361,4 @@ Se valorará la capacidad de construir una secuencia técnica completa y present
 
 ---
 
-**Versión del caso:** 1.0 · **Estado:** publicado para aplicación estudiantil · semestre 2026-2.
+**Versión del caso:** 1.1 · **Estado:** publicado para aplicación estudiantil · semestre 2026-2.
