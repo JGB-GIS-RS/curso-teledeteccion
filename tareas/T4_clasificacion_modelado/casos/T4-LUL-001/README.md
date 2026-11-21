@@ -255,7 +255,7 @@ Entrega del raster **`cambios_t1_t2.tif`**, que permita localizar permanencias y
 
 ## Producto técnico principal
 
-El resultado fundamental de la actividad será un:
+El resultado de la actividad será un:
 
 > **Diagnóstico retrospectivo de cambios de cobertura terrestre basado en dos clasificaciones Landsat supervisadas, evaluadas temáticamente y comparadas mediante MOLUSCE.**
 
