@@ -20,7 +20,7 @@ La TAREA no busca identificar el sensor con la ficha técnica más atractiva, si
 
 ## Alcance
 
-T1 se concentra en **observación y selección de estrategia**. No exige clasificación supervisada, PCA, Tasseled Cap, modelación territorial ni producción sistemática de índices o composiciones temporales.
+T1 se concentra en **observación y selección de estrategia**.
 
 ## Casos
 
