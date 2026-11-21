@@ -21,8 +21,6 @@ La evaluación combina dos componentes:
 
 ## Principio de evaluación
 
-> **Se evalúan decisiones técnicamente sustentadas, no secuencias de botones.**
-
 La calificación refleja la calidad de la formulación del problema, el rigor de la evidencia, la coherencia metodológica, la interpretación de resultados y la capacidad para transformar la evidencia en una recomendación técnica defendible.
 
 No se premian por sí mismos la extensión, la ornamentación, la complejidad del software ni la utilización de una herramienta específica.
