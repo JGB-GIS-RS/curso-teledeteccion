@@ -83,8 +83,6 @@ curso-teledeteccion/
 
 ## Principio de evaluación
 
-> **Se evalúan decisiones técnicamente sustentadas, no secuencias de botones.**
-
 Un producto cartográfico o computacional solo constituye evidencia cuando la selección de datos, el método, la validación, las limitaciones y la interpretación están justificadas.
 
 ## Reproducibilidad
