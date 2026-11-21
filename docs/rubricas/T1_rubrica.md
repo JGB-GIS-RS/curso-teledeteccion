@@ -70,7 +70,7 @@ Cada criterio se califica en escala de 0 a 5.
 
 ## 3. Adecuación de la resolución espacial · 10 %
 
-**Sobresaliente.** Analiza explícitamente la relación objeto–píxel y determina para qué escalas son defendibles los sistemas considerados. Integra tamaño y fragmentación de las unidades, cobertura asociada, píxeles mixtos, sombras, relieve y otras fuentes relevantes de mezcla espacial. Reconoce con claridad los límites de inferencia entre escala de planta, predio, paisaje y región.
+**Sobresaliente.** Analiza explícitamente la relación objeto–píxel y determina para qué escalas son defendibles los sistemas considerados. Integra tamaño y fragmentación de las unidades, cobertura asociada, píxeles mixtos, sombras, relieve y otras fuentes relevantes de mezcla espacial. Reconoce los límites de inferencia derivados de la relación entre tamaño de los objetos, resolución y mezcla espacial.
 
 **Sólido.** Establece adecuadamente la relación entre resolución espacial y escala del problema e identifica las principales implicaciones de fragmentación y píxeles mixtos. Presenta pequeñas simplificaciones, pero la conclusión sobre adecuación espacial permanece bien sustentada.
 
