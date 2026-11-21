@@ -4,11 +4,9 @@
 
 - **TAREA:** T1-CAF-001 · Diseño de una estrategia de observación remota para cultivos de café en el departamento del Quindío.
 - **Producto principal:** Informe Técnico No. 01 · Serie Técnica de Teledetección.
-- **Fecha límite:** **15 de septiembre de 2026**.
+- **Fecha y hora límite:** las indicadas en la actividad correspondiente de **Moodle / Plataforma UQ**.
 - **Medio de entrega:** **Moodle / Plataforma UQ**.
 - **Autores:** máximo **dos estudiantes** por informe.
-
-La hora exacta de cierre será la configurada en la actividad correspondiente de Moodle / Plataforma UQ.
 
 ## Archivos principales
 
@@ -66,4 +64,4 @@ El enunciado define el problema y las evidencias obligatorias; la Guía para aut
 
 ---
 
-**Semestre:** 2026-2 · **Entrega:** Moodle / Plataforma UQ · **Formatos:** `.pdf` + `.docx` · **Fecha límite:** 15 de septiembre de 2026.
+**Semestre:** 2026-2 · **Entrega:** Moodle / Plataforma UQ · **Formatos:** `.pdf` + `.docx`.
