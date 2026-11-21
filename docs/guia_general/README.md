@@ -13,8 +13,6 @@ Esta guía documenta la arquitectura académica del curso y la lógica de la **S
 
 El curso se organiza alrededor de problemas técnicos, no de secuencias de software. La evaluación prioriza la capacidad del estudiante para formular el problema, seleccionar y comprender los datos, justificar el método, producir evidencia, reconocer incertidumbre y convertir los resultados en una decisión técnica.
 
-> **Se evalúan decisiones técnicamente sustentadas, no secuencias de botones.**
-
 ## Progresión
 
 `observar → medir el cambio → transformar e interpretar → clasificar, validar y modelar`
