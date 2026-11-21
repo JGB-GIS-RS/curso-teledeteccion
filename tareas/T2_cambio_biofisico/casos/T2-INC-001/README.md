@@ -247,7 +247,7 @@ La sensibilidad temporal deberá comprobar si las conclusiones principales se ma
 
 ## Producto técnico principal
 
-El resultado fundamental de la TAREA será un:
+El resultado de la TAREA será un:
 
 > **Diagnóstico espacio-temporal del cambio espectral y de la evidencia de recuperación postincendio de la vegetación.**
 
