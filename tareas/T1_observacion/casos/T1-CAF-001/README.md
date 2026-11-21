@@ -65,9 +65,9 @@ Los recursos necesarios para desarrollar T1-CAF-001 se encuentran organizados en
 - [Informe técnico de referencia y base editable](../../../../examples/informe_tecnico_02/)
 - [Condiciones de entrega · semestre 2026-2](ENTREGA_2026-2.md)
 
-> **Entrega 2026-2:** 15 de septiembre de 2026 mediante **Moodle / Plataforma UQ**. Consulte las condiciones operativas completas en [`ENTREGA_2026-2.md`](ENTREGA_2026-2.md).
+> **Entrega:** la fecha y hora límite son las establecidas en la actividad correspondiente de **Moodle / Plataforma UQ**. Los formatos y demás condiciones se describen en [`ENTREGA_2026-2.md`](ENTREGA_2026-2.md).
 
-El estudiante deberá consultar conjuntamente el **enunciado**, la **Guía para autores**, la **rúbrica**, el **Informe técnico de referencia y base editable** y las **condiciones de entrega**: el enunciado define el problema y las evidencias específicas; la guía establece las normas científicas y editoriales comunes; la rúbrica establece los criterios de evaluación; el informe de referencia muestra la materialización del formato y proporciona los estilos de trabajo; y la hoja de entrega establece las condiciones operativas del semestre. El contenido científico y las subsecciones específicas del Informe Técnico No. 02 no deben copiarse al caso T1-CAF-001.
+El estudiante deberá consultar conjuntamente el **enunciado**, la **Guía para autores**, la **rúbrica**, el **Informe técnico de referencia y base editable** y las **condiciones de entrega**: el enunciado define el problema y las evidencias específicas; la guía establece las normas científicas y editoriales comunes; la rúbrica establece los criterios de evaluación; el informe de referencia muestra la materialización del formato y proporciona los estilos de trabajo; y la hoja de entrega establece las condiciones operativas del semestre.
 
 ## Decisiones técnicas que debe resolver el informe
 
@@ -91,7 +91,7 @@ El estudiante deberá analizar explícitamente la relación:
 
 `estructura y tamaño del objeto ↔ tamaño del píxel`
 
-La discusión deberá considerar, cuando corresponda, tamaño de las unidades productivas, fragmentación, mosaicos de coberturas, vegetación asociada, topografía, sombras, píxeles mixtos y diferencias entre escalas de planta, predio, paisaje y región.
+La discusión deberá considerar, cuando corresponda, tamaño de las unidades productivas, fragmentación, mosaicos de coberturas, vegetación asociada, topografía, sombras y píxeles mixtos.
 
 No se aceptará como argumento suficiente que una resolución espacial menor sea automáticamente “mejor”.
 
@@ -120,8 +120,6 @@ El propósito no es reproducir una ficha técnica, sino comprender **qué dato s
 Si el equipo propone una estrategia multisensor, deberá establecer si los productos seleccionados pueden integrarse directamente en una misma serie temporal.
 
 La discusión deberá considerar posibles diferencias espectrales, radiométricas, espaciales, geométricas, de resolución y de geometría de observación. Cuando corresponda, deberá investigarse si existen procedimientos o productos diseñados específicamente para mejorar la comparabilidad entre las misiones consideradas.
-
-No se exige encontrar una tecnología concreta por su nombre: se evalúa la capacidad para **identificar el problema de compatibilidad y proponer una solución metodológicamente defendible**.
 
 ## Evidencias técnicas obligatorias
 
@@ -157,7 +155,7 @@ Si se utilizan puntuaciones o ponderaciones, deberán explicarse y justificarse.
 
 ## Producto técnico principal
 
-El resultado fundamental de la TAREA será una:
+El resultado de la TAREA será una:
 
 > **Estrategia de observación remota para cultivos de café en el Quindío.**
 
@@ -251,10 +249,6 @@ Identificación de datos suministrados, datos externos, fuentes, scripts o proce
 
 Según las normas editoriales de la Serie Técnica de Teledetección.
 
-## Alcance de la TAREA
-
-T1 **no exige** cálculo sistemático de índices, generación de composiciones temporales, PCA, Tasseled Cap, clasificación supervisada, mapas LULC, matrices de confusión, MOLUSCE ni modelación de cambios. Estos procedimientos podrán mencionarse como etapas posteriores, pero no constituyen productos de evaluación de esta TAREA.
-
 ## Condiciones de desarrollo
 
 - Máximo dos autores por informe.
@@ -265,11 +259,11 @@ T1 **no exige** cálculo sistemático de índices, generación de composiciones 
 - La recomendación deberá derivarse de la evidencia presentada.
 - Las limitaciones e incertidumbres deberán declararse explícitamente.
 
-Las condiciones operativas de entrega para el semestre **2026-2** se encuentran en [`ENTREGA_2026-2.md`](ENTREGA_2026-2.md).
+Las condiciones operativas de entrega se encuentran en [`ENTREGA_2026-2.md`](ENTREGA_2026-2.md); la fecha y hora límite se fijan en **Moodle / Plataforma UQ**.
 
 ## Criterio de éxito
 
-La TAREA no se considera resuelta por haber seleccionado correctamente el nombre de un sensor. El trabajo será satisfactorio cuando exista coherencia demostrable entre:
+La evaluación considerará la coherencia entre:
 
 `problema + fundamento físico + escala + evidencia temporal + producto + decisión`
 
