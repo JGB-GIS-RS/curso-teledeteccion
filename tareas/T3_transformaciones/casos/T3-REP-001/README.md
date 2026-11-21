@@ -294,7 +294,7 @@ La comparación deberá estar vinculada a contrastes territoriales concretos.
 
 ## Producto técnico principal
 
-El resultado fundamental de la TAREA será un:
+El resultado de la TAREA será un:
 
 > **Diagnóstico comparativo de representaciones espectrales para la interpretación del paisaje urbano–agrícola.**
 
