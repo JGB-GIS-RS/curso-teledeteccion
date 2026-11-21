@@ -8,8 +8,6 @@ Esta guía establece las normas comunes para la preparación de los **Informes T
 
 El propósito de la Serie no es reproducir el formato de un taller académico. Cada informe debe presentar un problema técnico de teledetección, justificar las decisiones metodológicas, producir evidencia verificable, reconocer sus limitaciones y convertir los resultados en conclusiones y en una recomendación profesional.
 
-> **Se evalúan decisiones técnicamente sustentadas, no secuencias de botones.**
-
 ---
 
 ## 0. Aplicación y jerarquía documental
@@ -20,8 +18,6 @@ Esta guía constituye la norma editorial común de la Serie. Para interpretar co
 - **Enunciado de la TAREA o del caso:** define el problema técnico, los datos suministrados, la evidencia obligatoria, las restricciones y, cuando se indique expresamente, excepciones operativas como extensión o archivos de entrega.
 - **Rúbrica:** establece los criterios y ponderaciones con los que se evaluará el trabajo; no sustituye el enunciado ni crea por sí sola nuevos productos obligatorios.
 - **Informe técnico de referencia y base editable:** materializa la composición visual del informe —márgenes, estilos, jerarquías tipográficas, encabezados, numeración y disposición general— y proporciona la base de trabajo que debe conservarse en esos aspectos.
-
-Ante una diferencia aparente, una **excepción explícita del enunciado de la TAREA** prevalece para ese caso concreto. En ausencia de una excepción expresa se aplica esta guía. Para aspectos exclusivamente de maquetación y estilos se utiliza como referencia el **Informe Técnico No. 02**, disponible como documento editable.
 
 ---
 
@@ -36,8 +32,6 @@ El producto corresponde a un **artículo/informe técnico corto**, de redacción
 - explícito respecto de alcance, supuestos, limitaciones e incertidumbre.
 
 Un informe no mejora por incluir más texto, más mapas, más software o más procedimientos. Todo elemento debe cumplir una función metodológica, probatoria o argumentativa.
-
-El idioma principal de la Serie es **español**, salvo que una TAREA autorice expresamente otro idioma. Los términos técnicos en inglés, siglas y nombres oficiales de productos o algoritmos se manejarán según las reglas de esta guía.
 
 ---
 
