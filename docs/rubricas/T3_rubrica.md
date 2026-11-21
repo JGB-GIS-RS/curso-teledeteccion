@@ -184,7 +184,6 @@ Cada criterio se califica en escala de 0 a 5.
 
 ## Reglas de aplicación
 
-- Se evalúan decisiones técnicamente sustentadas, no secuencias de botones.
 - La calidad gráfica no compensa errores conceptuales o metodológicos.
 - La selección de software no constituye criterio de mérito.
 - No se premia la inclusión de índices adicionales por sí misma.
